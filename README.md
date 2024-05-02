@@ -137,3 +137,4 @@ Please submit your solution by creating a pull request to this repository. You c
 --- 
 
 
+To start: npm run dev
