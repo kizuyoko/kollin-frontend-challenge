@@ -139,5 +139,6 @@ Please submit your solution by creating a pull request to this repository. You c
 
 To start: npm run dev
 Left:
-- CSS, more detail in pixel, config in  tailwind.config.js and optimization in global.css.
+- 
+- CSS, detail in pixel, responsive/dark, config in tailwind.config.js and optimization in global.css.
 - TypeScript

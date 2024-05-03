@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Question from './Question';
 
 function AssignmentDetails({ assignmentId }) {
     const [assignment, setAssignment] = useState(null);
@@ -58,16 +59,24 @@ function AssignmentDetails({ assignmentId }) {
     return (
         <div>
             {assignment ? (
-                <div>
-                    <h2 className='pt-4 text-xl'>Assignment Details ({assignment.id})</h2>
+                <div className='pb-10'>
+                    <Question question={assignment} />
+                    
+                    <p className='pt-4 text-xl'>Assignment Details ({assignment.id})</p>
                     <p><b>ID: </b> {assignment.id}</p>
                     <p><b>Difficulty Score: </b>{assignment.difficultyScore}</p>
                     <p><b>Question Text: </b>{assignment.questionText}</p>
                     <p><b>Solution Text: </b>{assignment.solutionText}</p>
                     <p><b>Hints: </b>{assignment.hints}</p>
+                    <ul>
+                        {assignment.answerOptions.map(option => (
+                            <li key={option.id}>
+                                {option.text} {option.correct ? '(Correct)' : '(Incorrect)'}
+                            </li>
+                        ))}
+                    </ul>
                     <p><b>Created At: </b>{assignment.createdAt}</p>
                     <p><b>Updated At: </b>{assignment.updatedAt}</p>
-                    <hr className='mt-2' />
                 </div>
             ) : (
                 <p>Loading...</p>
